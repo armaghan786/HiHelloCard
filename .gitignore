@@ -1,5 +1,5 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
 
-.vs/HiHelloCard/FileContentIndex/505b2b15-c960-4e13-8d2a-0db181139ceb.vsidx
-.vs/HiHelloCard/FileContentIndex/78609eb0-9da9-46d5-9fa5-797d7e51fd31.vsidx
-.vs/HiHelloCard/v17/.suo
-.vs/HiHelloCard/FileContentIndex/3cc4716e-f9fb-48bc-82c8-d8e3d8addb5d.vsidx
+/HiHelloCard/.vs/HiHelloCard
