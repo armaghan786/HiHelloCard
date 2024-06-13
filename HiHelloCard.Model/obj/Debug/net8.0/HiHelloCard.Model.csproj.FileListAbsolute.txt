@@ -1,0 +1,12 @@
+D:\AlphaSquared\HiHelloCard\HiHelloCard.Model\bin\Debug\net8.0\HiHelloCard.Model.deps.json
+D:\AlphaSquared\HiHelloCard\HiHelloCard.Model\bin\Debug\net8.0\HiHelloCard.Model.dll
+D:\AlphaSquared\HiHelloCard\HiHelloCard.Model\bin\Debug\net8.0\HiHelloCard.Model.pdb
+D:\AlphaSquared\HiHelloCard\HiHelloCard.Model\obj\Debug\net8.0\HiHelloCard.Model.GeneratedMSBuildEditorConfig.editorconfig
+D:\AlphaSquared\HiHelloCard\HiHelloCard.Model\obj\Debug\net8.0\HiHelloCard.Model.AssemblyInfoInputs.cache
+D:\AlphaSquared\HiHelloCard\HiHelloCard.Model\obj\Debug\net8.0\HiHelloCard.Model.AssemblyInfo.cs
+D:\AlphaSquared\HiHelloCard\HiHelloCard.Model\obj\Debug\net8.0\HiHelloCard.Model.csproj.CoreCompileInputs.cache
+D:\AlphaSquared\HiHelloCard\HiHelloCard.Model\obj\Debug\net8.0\HiHelloCard.Model.sourcelink.json
+D:\AlphaSquared\HiHelloCard\HiHelloCard.Model\obj\Debug\net8.0\HiHelloCard.Model.dll
+D:\AlphaSquared\HiHelloCard\HiHelloCard.Model\obj\Debug\net8.0\refint\HiHelloCard.Model.dll
+D:\AlphaSquared\HiHelloCard\HiHelloCard.Model\obj\Debug\net8.0\HiHelloCard.Model.pdb
+D:\AlphaSquared\HiHelloCard\HiHelloCard.Model\obj\Debug\net8.0\ref\HiHelloCard.Model.dll
