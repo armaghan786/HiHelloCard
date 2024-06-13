@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\AlphaSquared\\HiHelloCard\\HiHelloCard\\HiHelloCard.csproj": {}
+    "D:\\AlphaSquared\\HiHelloCard\\HiHelloCard.Model\\HiHelloCard.Model.csproj": {}
   },
   "projects": {
-    "D:\\AlphaSquared\\HiHelloCard\\HiHelloCard\\HiHelloCard.csproj": {
+    "D:\\AlphaSquared\\HiHelloCard\\HiHelloCard.Model\\HiHelloCard.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\AlphaSquared\\HiHelloCard\\HiHelloCard\\HiHelloCard.csproj",
-        "projectName": "HiHelloCard",
-        "projectPath": "D:\\AlphaSquared\\HiHelloCard\\HiHelloCard\\HiHelloCard.csproj",
+        "projectUniqueName": "D:\\AlphaSquared\\HiHelloCard\\HiHelloCard.Model\\HiHelloCard.Model.csproj",
+        "projectName": "HiHelloCard.Model",
+        "projectPath": "D:\\AlphaSquared\\HiHelloCard\\HiHelloCard.Model\\HiHelloCard.Model.csproj",
         "packagesPath": "C:\\Users\\123\\.nuget\\packages\\",
-        "outputPath": "D:\\AlphaSquared\\HiHelloCard\\HiHelloCard\\obj\\",
+        "outputPath": "D:\\AlphaSquared\\HiHelloCard\\HiHelloCard.Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\123\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -56,9 +56,6 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

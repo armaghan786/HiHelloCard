@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vQgVDrPtTTKW9/46G9wd+5jUCehbQhaqM1zmSPIJzEOG4MtcCcw0ijYYMPE2/XdzqnlaWx+DvdomWr9luMPaMw==",
+  "dgSpecHash": "FWtScDQV4wUO6RWCPVglIXWB2XZVGB6NfKvGVWFivwtUQHROSnQ4JWK5J5lLdyCbL+p6ofRAiqnC61A+JNIC3A==",
   "success": true,
-  "projectFilePath": "D:\\AlphaSquared\\HiHelloCard\\HiHelloCard.csproj",
+  "projectFilePath": "D:\\AlphaSquared\\HiHelloCard\\HiHelloCard\\HiHelloCard.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
