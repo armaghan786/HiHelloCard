@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\New folder\\HiHelloCard\\HiHelloCard.csproj",
+      "projectUniqueName": "D:\\AlphaSquared\\HiHelloCard\\HiHelloCard.csproj",
       "projectName": "HiHelloCard",
-      "projectPath": "D:\\New folder\\HiHelloCard\\HiHelloCard.csproj",
+      "projectPath": "D:\\AlphaSquared\\HiHelloCard\\HiHelloCard.csproj",
       "packagesPath": "C:\\Users\\123\\.nuget\\packages\\",
-      "outputPath": "D:\\New folder\\HiHelloCard\\obj\\",
+      "outputPath": "D:\\AlphaSquared\\HiHelloCard\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\123\\AppData\\Roaming\\NuGet\\NuGet.Config",
