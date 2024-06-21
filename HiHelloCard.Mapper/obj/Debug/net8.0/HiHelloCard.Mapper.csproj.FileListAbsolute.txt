@@ -1,0 +1,16 @@
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Mapper\bin\Debug\net8.0\HiHelloCard.Mapper.deps.json
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Mapper\bin\Debug\net8.0\HiHelloCard.Mapper.dll
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Mapper\bin\Debug\net8.0\HiHelloCard.Mapper.pdb
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Mapper\bin\Debug\net8.0\HiHelloCard.Model.dll
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Mapper\bin\Debug\net8.0\HiHelloCard.Model.pdb
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Mapper\obj\Debug\net8.0\HiHelloCard.Mapper.csproj.AssemblyReference.cache
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Mapper\obj\Debug\net8.0\HiHelloCard.Mapper.GeneratedMSBuildEditorConfig.editorconfig
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Mapper\obj\Debug\net8.0\HiHelloCard.Mapper.AssemblyInfoInputs.cache
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Mapper\obj\Debug\net8.0\HiHelloCard.Mapper.AssemblyInfo.cs
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Mapper\obj\Debug\net8.0\HiHelloCard.Mapper.csproj.CoreCompileInputs.cache
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Mapper\obj\Debug\net8.0\HiHelloCard.Mapper.sourcelink.json
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Mapper\obj\Debug\net8.0\HiHelloC.B131F590.Up2Date
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Mapper\obj\Debug\net8.0\HiHelloCard.Mapper.dll
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Mapper\obj\Debug\net8.0\refint\HiHelloCard.Mapper.dll
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Mapper\obj\Debug\net8.0\HiHelloCard.Mapper.pdb
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Mapper\obj\Debug\net8.0\ref\HiHelloCard.Mapper.dll

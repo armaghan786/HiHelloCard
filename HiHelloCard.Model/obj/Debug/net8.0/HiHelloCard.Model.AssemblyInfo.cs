@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HiHelloCard.Model")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1342faf929d6b3b783ed510d4c73b3f5a8f37d28")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fbde45a9d8d54bb2414544b6393d19bc6addaeed")]
 [assembly: System.Reflection.AssemblyProductAttribute("HiHelloCard.Model")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HiHelloCard.Model")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

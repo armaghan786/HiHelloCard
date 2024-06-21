@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\AlphaSquared\\HiHelloCard\\HiHelloCard.Model\\HiHelloCard.Model.csproj": {}
+    "E:\\WorkSpace\\HiHello\\HiHelloCard\\HiHelloCard.Model\\HiHelloCard.Model.csproj": {}
   },
   "projects": {
-    "D:\\AlphaSquared\\HiHelloCard\\HiHelloCard.Model\\HiHelloCard.Model.csproj": {
+    "E:\\WorkSpace\\HiHello\\HiHelloCard\\HiHelloCard.Model\\HiHelloCard.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\AlphaSquared\\HiHelloCard\\HiHelloCard.Model\\HiHelloCard.Model.csproj",
+        "projectUniqueName": "E:\\WorkSpace\\HiHello\\HiHelloCard\\HiHelloCard.Model\\HiHelloCard.Model.csproj",
         "projectName": "HiHelloCard.Model",
-        "projectPath": "D:\\AlphaSquared\\HiHelloCard\\HiHelloCard.Model\\HiHelloCard.Model.csproj",
-        "packagesPath": "C:\\Users\\123\\.nuget\\packages\\",
-        "outputPath": "D:\\AlphaSquared\\HiHelloCard\\HiHelloCard.Model\\obj\\",
+        "projectPath": "E:\\WorkSpace\\HiHello\\HiHelloCard\\HiHelloCard.Model\\HiHelloCard.Model.csproj",
+        "packagesPath": "C:\\Users\\A2\\.nuget\\packages\\",
+        "outputPath": "E:\\WorkSpace\\HiHello\\HiHelloCard\\HiHelloCard.Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\123\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\A2\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,6 +44,44 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.5, )"
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.4.0, )"
+            },
+            "MySql.Data.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.22, )"
+            },
+            "MySql.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[8.0.2, )"
+            },
+            "Z.EntityFramework.Extensions.EFCore": {
+              "target": "Package",
+              "version": "[8.102.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -60,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

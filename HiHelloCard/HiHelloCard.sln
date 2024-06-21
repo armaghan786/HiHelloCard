@@ -3,9 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiHelloCard", "HiHelloCard.csproj", "{466958FC-E398-49C6-A28D-EF62D1DD907D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HiHelloCard", "HiHelloCard.csproj", "{466958FC-E398-49C6-A28D-EF62D1DD907D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiHelloCard.Model", "..\HiHelloCard.Model\HiHelloCard.Model.csproj", "{9E7A2AC0-ADFC-4DD3-8448-5332312949A8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HiHelloCard.Model", "..\HiHelloCard.Model\HiHelloCard.Model.csproj", "{9E7A2AC0-ADFC-4DD3-8448-5332312949A8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HiHelloCard.Interfaces", "..\HiHelloCard.Interfaces\HiHelloCard.Interfaces.csproj", "{C71AB0D6-809E-41C9-9328-38FB08D2F594}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiHelloCard.Mapper", "..\HiHelloCard.Mapper\HiHelloCard.Mapper.csproj", "{CD4C7064-4D8A-400E-84E5-D7E0D756C631}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiHelloCard.Repository", "..\HiHelloCard.Repository\HiHelloCard.Repository.csproj", "{32E0853E-B146-4E85-A39D-31EF49F86204}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HiHelloCard.Services", "..\HiHelloCard.Services\HiHelloCard.Services.csproj", "{83875F17-A1AF-4067-A350-D8F1EBA32166}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +29,22 @@ Global
 		{9E7A2AC0-ADFC-4DD3-8448-5332312949A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E7A2AC0-ADFC-4DD3-8448-5332312949A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E7A2AC0-ADFC-4DD3-8448-5332312949A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C71AB0D6-809E-41C9-9328-38FB08D2F594}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C71AB0D6-809E-41C9-9328-38FB08D2F594}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C71AB0D6-809E-41C9-9328-38FB08D2F594}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C71AB0D6-809E-41C9-9328-38FB08D2F594}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD4C7064-4D8A-400E-84E5-D7E0D756C631}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD4C7064-4D8A-400E-84E5-D7E0D756C631}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD4C7064-4D8A-400E-84E5-D7E0D756C631}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD4C7064-4D8A-400E-84E5-D7E0D756C631}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32E0853E-B146-4E85-A39D-31EF49F86204}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32E0853E-B146-4E85-A39D-31EF49F86204}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32E0853E-B146-4E85-A39D-31EF49F86204}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32E0853E-B146-4E85-A39D-31EF49F86204}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83875F17-A1AF-4067-A350-D8F1EBA32166}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83875F17-A1AF-4067-A350-D8F1EBA32166}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83875F17-A1AF-4067-A350-D8F1EBA32166}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83875F17-A1AF-4067-A350-D8F1EBA32166}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
