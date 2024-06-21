@@ -1,0 +1,25 @@
+﻿@model UserCardModel
+
+<div>
+    <h1>@Model.Name's Details</h1>
+    <p><strong>First Name:</strong> @Model.FirstName</p>
+    <p><strong>Middle Name:</strong> @Model.MiddleName</p>
+    <p><strong>Last Name:</strong> @Model.LastName</p>
+    <p><strong>Suffix:</strong> @Model.Suffix</p>
+    <p><strong>Accreditations:</strong> @Model.Accreditations</p>
+    <p><strong>Preferred Name:</strong> @Model.PreferredName</p>
+    <p><strong>Maiden Name:</strong> @Model.MaidenName</p>
+    <p><strong>Pronouns:</strong> @Model.Pronouns</p>
+    <p><strong>Profile Photo:</strong> <img src="@Model.ProfilePhoto" alt="Profile Photo"></p>
+    <p><strong>Design Id:</strong> @Model.DesignId</p>
+    <p><strong>User Id:</strong> @Model.UserId</p>
+    <p><strong>Color:</strong> @Model.Color</p>
+    <p><strong>Logo:</strong> <img src="@Model.Logo" alt="Logo"></p>
+    <p><strong>Affiliate Title:</strong> @Model.AffiliateTitle</p>
+    <p><strong>Department:</strong> @Model.Department</p>
+    <p><strong>Company:</strong> @Model.Company</p>
+    <p><strong>Headline:</strong> @Model.Headline</p>
+
+    <h2>QR Code</h2>
+    <img src="@Model.QrCodeBase64" alt="QR Code">
+</div>

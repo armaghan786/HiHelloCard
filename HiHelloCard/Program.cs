@@ -23,7 +23,7 @@ using System.Threading.Tasks;
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+
 builder.Services.AddDbContext<HihelloContext>(options =>
     options.UseMySql(
         configuration.GetConnectionString("DefaultConnection"),
@@ -31,6 +31,7 @@ builder.Services.AddDbContext<HihelloContext>(options =>
         optionsBuilder => optionsBuilder.MigrationsAssembly("HiHello")));
 
 // Add CORS policy
+builder.Services.AddControllers();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowOrigin", builder =>
@@ -71,6 +72,12 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+builder.Services.AddControllersWithViews();
+builder.Services.AddMvc().AddRazorOptions(options =>
+{
+    options.ViewLocationFormats.Add("/{0}.cshtml");
+});
+
 // Register AutoMapper
 builder.Services.AddAutoMapper(typeof(UserMapperProfile));
 builder.Services.AddAutoMapper(typeof(UserCardMapperProfile));
@@ -84,12 +91,6 @@ builder.Services.AddScoped<IUserCardFieldRepository, UserCardFieldRepository>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserCardService, UserCardService>();
-
-builder.Services.AddControllersWithViews();
-builder.Services.AddMvc().AddRazorOptions(options =>
-{
-    options.ViewLocationFormats.Add("/{0}.cshtml");
-});
 
 
 var app = builder.Build();
@@ -106,12 +107,13 @@ else
 }
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-app.UseRouting();
-app.UseCors("AllowOrigin");
-
+app.UseCors(x => x
+               .AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader());
 app.UseAuthentication();
+app.UseRouting();
 app.UseAuthorization();
-
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

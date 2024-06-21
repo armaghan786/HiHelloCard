@@ -35,6 +35,7 @@ namespace HiHelloCard.Model.ViewModel
         public bool? IsArchive { get; set; }
         public DateTime? CreatedDateTime { get; set; }
         public DateTime? UpdatedDateTime { get; set; }
+        public string QrCodeBase64 { get; set; }
         public List<UserCardBadgeModel> CardBadges { get; set; }
         public List<UserCardFieldModel> CardFields { get; set; }
     }

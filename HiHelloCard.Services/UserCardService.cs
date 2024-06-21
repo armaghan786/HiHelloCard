@@ -7,11 +7,15 @@ using HiHelloCard.Model.ViewModel;
 using HiHelloCard.Services.Common;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using QRCoder;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Drawing;
+using Newtonsoft.Json;
 
 namespace HiHelloCard.Services
 {
@@ -215,6 +219,7 @@ namespace HiHelloCard.Services
                             Link = x.Link,
                             Description = x.Description,
                         }).ToList();
+                        model.QrCodeBase64 = GenerateQrCode(model);
                         return Constant.Response("success", model, "");
                     }
                 }
@@ -224,6 +229,18 @@ namespace HiHelloCard.Services
             {
                 return Constant.Response("error", new object(), ex.Message);
             }
+        }
+
+        private string GenerateQrCode(UserCardModel card)
+        {
+            string qrCodeText = JsonConvert.SerializeObject(card);
+            QRCodeGenerator qrGenerator = new QRCodeGenerator();
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode(qrCodeText, QRCodeGenerator.ECCLevel.Q);
+            PngByteQRCode qrCode = new PngByteQRCode(qrCodeData);
+            byte[] qrCodeImage = qrCode.GetGraphic(20);
+
+            string base64String = Convert.ToBase64String(qrCodeImage);
+            return $"data:image/png;base64,{base64String}";
         }
     }
 }
