@@ -52,7 +52,9 @@ namespace HiHelloCard.Services
         {
             try
             {
-                var user = _userRepository.FirstOrDefault(x => x.Email.ToLower().Contains(login.Email) && !x.IsArchive.Value && x.IsActive.Value);
+                var user = _userRepository.FirstOrDefault(x =>
+                x.Email.ToLower().Contains(login.Email)
+                && !x.IsArchive.Value && x.IsActive.Value);
                 if (user != null)
                 {
                     var password = Constant.Decrypt(user.Password);
