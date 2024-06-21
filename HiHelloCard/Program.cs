@@ -16,6 +16,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using System;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -91,6 +92,23 @@ builder.Services.AddMvc().AddRazorOptions(options =>
     options.ViewLocationFormats.Add("/{0}.cshtml");
 });
 
+// Add services to the container.
+builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1",
+   new Microsoft.OpenApi.Models.OpenApiInfo
+   {
+       Title = "New Swagger",
+       Description = "New Swagger Document",
+       Version = "v1"
+   });
+    var filename = Assembly.GetExecutingAssembly().GetName().Name + ".xml";
+    var filepath = Path.Combine(AppContext.BaseDirectory, filename);
+    options.IncludeXmlComments(filepath);
+});
+
 
 var app = builder.Build();
 
@@ -112,8 +130,16 @@ app.UseCors("AllowOrigin");
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.UseSwagger();
+app.UseSwaggerUI(options =>
+{
+    options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+    options.RoutePrefix = string.Empty;
+    options.DocumentTitle = "My Swagger";
+
+});
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

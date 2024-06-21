@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\WorkSpace\\HiHello\\HiHelloCard\\HiHelloCard.Model\\HiHelloCard.Model.csproj": {}
+    "D:\\AlphaSquared\\HiHelloCard\\HiHelloCard.Model\\HiHelloCard.Model.csproj": {}
   },
   "projects": {
-    "E:\\WorkSpace\\HiHello\\HiHelloCard\\HiHelloCard.Model\\HiHelloCard.Model.csproj": {
+    "D:\\AlphaSquared\\HiHelloCard\\HiHelloCard.Model\\HiHelloCard.Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\WorkSpace\\HiHello\\HiHelloCard\\HiHelloCard.Model\\HiHelloCard.Model.csproj",
+        "projectUniqueName": "D:\\AlphaSquared\\HiHelloCard\\HiHelloCard.Model\\HiHelloCard.Model.csproj",
         "projectName": "HiHelloCard.Model",
-        "projectPath": "E:\\WorkSpace\\HiHello\\HiHelloCard\\HiHelloCard.Model\\HiHelloCard.Model.csproj",
-        "packagesPath": "C:\\Users\\A2\\.nuget\\packages\\",
-        "outputPath": "E:\\WorkSpace\\HiHello\\HiHelloCard\\HiHelloCard.Model\\obj\\",
+        "projectPath": "D:\\AlphaSquared\\HiHelloCard\\HiHelloCard.Model\\HiHelloCard.Model.csproj",
+        "packagesPath": "C:\\Users\\123\\.nuget\\packages\\",
+        "outputPath": "D:\\AlphaSquared\\HiHelloCard\\HiHelloCard.Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\A2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\123\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -98,7 +98,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
