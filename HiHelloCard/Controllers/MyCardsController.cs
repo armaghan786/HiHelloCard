@@ -1,5 +1,6 @@
 ﻿using HiHelloCard.Interfaces.Service;
 using HiHelloCard.Model.Response;
+using HiHelloCard.Model.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HiHelloCard.Controllers
@@ -18,7 +19,7 @@ namespace HiHelloCard.Controllers
 
         public IActionResult Details(string guid) 
         {
-            var card = _userCardService.CardDetails(guid);
+            var card = (UserCardModel)_userCardService.CardDetails(guid).Result.Data;
             if (card == null)
             {
                 return NotFound();

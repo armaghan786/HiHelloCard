@@ -24,7 +24,7 @@ using System.Threading.Tasks;
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+
 builder.Services.AddDbContext<HihelloContext>(options =>
     options.UseMySql(
         configuration.GetConnectionString("DefaultConnection"),
@@ -32,6 +32,7 @@ builder.Services.AddDbContext<HihelloContext>(options =>
         optionsBuilder => optionsBuilder.MigrationsAssembly("HiHello")));
 
 // Add CORS policy
+builder.Services.AddControllersWithViews();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowOrigin", builder =>
@@ -138,8 +139,8 @@ app.UseSwaggerUI(options =>
     options.DocumentTitle = "My Swagger";
 
 });
-//app.MapControllerRoute(
-//    name: "default",
-//    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
