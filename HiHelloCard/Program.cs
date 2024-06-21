@@ -16,6 +16,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using System;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,7 +24,7 @@ using System.Threading.Tasks;
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 // Add services to the container.
-
+builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<HihelloContext>(options =>
     options.UseMySql(
         configuration.GetConnectionString("DefaultConnection"),
@@ -31,7 +32,6 @@ builder.Services.AddDbContext<HihelloContext>(options =>
         optionsBuilder => optionsBuilder.MigrationsAssembly("HiHello")));
 
 // Add CORS policy
-builder.Services.AddControllers();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowOrigin", builder =>
@@ -72,12 +72,6 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-builder.Services.AddControllersWithViews();
-builder.Services.AddMvc().AddRazorOptions(options =>
-{
-    options.ViewLocationFormats.Add("/{0}.cshtml");
-});
-
 // Register AutoMapper
 builder.Services.AddAutoMapper(typeof(UserMapperProfile));
 builder.Services.AddAutoMapper(typeof(UserCardMapperProfile));
@@ -91,6 +85,29 @@ builder.Services.AddScoped<IUserCardFieldRepository, UserCardFieldRepository>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserCardService, UserCardService>();
+
+builder.Services.AddControllersWithViews();
+builder.Services.AddMvc().AddRazorOptions(options =>
+{
+    options.ViewLocationFormats.Add("/{0}.cshtml");
+});
+
+// Add services to the container.
+builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1",
+   new Microsoft.OpenApi.Models.OpenApiInfo
+   {
+       Title = "New Swagger",
+       Description = "New Swagger Document",
+       Version = "v1"
+   });
+    var filename = Assembly.GetExecutingAssembly().GetName().Name + ".xml";
+    var filepath = Path.Combine(AppContext.BaseDirectory, filename);
+    options.IncludeXmlComments(filepath);
+});
 
 
 var app = builder.Build();
@@ -107,15 +124,22 @@ else
 }
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-app.UseCors(x => x
-               .AllowAnyOrigin()
-               .AllowAnyMethod()
-               .AllowAnyHeader());
-app.UseAuthentication();
 app.UseRouting();
+app.UseCors("AllowOrigin");
+
+app.UseAuthentication();
 app.UseAuthorization();
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.UseSwagger();
+app.UseSwaggerUI(options =>
+{
+    options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+    options.RoutePrefix = string.Empty;
+    options.DocumentTitle = "My Swagger";
+
+});
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

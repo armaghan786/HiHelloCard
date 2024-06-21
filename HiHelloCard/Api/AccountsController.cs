@@ -28,7 +28,7 @@ namespace HiHelloCard.Api
         {
             return await _accountService.SignUp(user);
         }
-
+        [HttpGet]
         public async Task<object> Signin(UserModel credentials)
         {
 
