@@ -1,0 +1,16 @@
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Interfaces\bin\Debug\net8.0\HiHelloCard.Interfaces.deps.json
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Interfaces\bin\Debug\net8.0\HiHelloCard.Interfaces.dll
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Interfaces\bin\Debug\net8.0\HiHelloCard.Interfaces.pdb
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Interfaces\bin\Debug\net8.0\HiHelloCard.Model.dll
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Interfaces\bin\Debug\net8.0\HiHelloCard.Model.pdb
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Interfaces\obj\Debug\net8.0\HiHelloCard.Interfaces.csproj.AssemblyReference.cache
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Interfaces\obj\Debug\net8.0\HiHelloCard.Interfaces.GeneratedMSBuildEditorConfig.editorconfig
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Interfaces\obj\Debug\net8.0\HiHelloCard.Interfaces.AssemblyInfoInputs.cache
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Interfaces\obj\Debug\net8.0\HiHelloCard.Interfaces.AssemblyInfo.cs
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Interfaces\obj\Debug\net8.0\HiHelloCard.Interfaces.csproj.CoreCompileInputs.cache
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Interfaces\obj\Debug\net8.0\HiHelloCard.Interfaces.sourcelink.json
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Interfaces\obj\Debug\net8.0\HiHelloC.62E4CC45.Up2Date
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Interfaces\obj\Debug\net8.0\HiHelloCard.Interfaces.dll
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Interfaces\obj\Debug\net8.0\refint\HiHelloCard.Interfaces.dll
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Interfaces\obj\Debug\net8.0\HiHelloCard.Interfaces.pdb
+E:\WorkSpace\HiHello\HiHelloCard\HiHelloCard.Interfaces\obj\Debug\net8.0\ref\HiHelloCard.Interfaces.dll
