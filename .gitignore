@@ -3,3 +3,17 @@
 ################################################################################
 
 /HiHelloCard/.vs/HiHelloCard
+/HiHelloCard/.vs/ProjectEvaluation/hihellocard.metadata.v8.bin
+/HiHelloCard/.vs/ProjectEvaluation/hihellocard.projects.v8.bin
+/HiHelloCard/obj/Debug/net8.0/HiHelloCard.AssemblyInfo.cs
+/HiHelloCard/obj/Debug/net8.0/HiHelloCard.GeneratedMSBuildEditorConfig.editorconfig
+/HiHelloCard.Interfaces/obj/Debug/net8.0/HiHelloCard.Interfaces.AssemblyInfo.cs
+/HiHelloCard.Interfaces/obj/Debug/net8.0/HiHelloCard.Interfaces.GeneratedMSBuildEditorConfig.editorconfig
+/HiHelloCard.Mapper/obj/Debug/net8.0/HiHelloCard.Mapper.AssemblyInfo.cs
+/HiHelloCard.Mapper/obj/Debug/net8.0/HiHelloCard.Mapper.GeneratedMSBuildEditorConfig.editorconfig
+/HiHelloCard.Model/obj/Debug/net8.0/HiHelloCard.Model.AssemblyInfo.cs
+/HiHelloCard.Model/obj/Debug/net8.0/HiHelloCard.Model.GeneratedMSBuildEditorConfig.editorconfig
+/HiHelloCard.Repository/obj/Debug/net8.0/HiHelloCard.Repository.AssemblyInfo.cs
+/HiHelloCard.Repository/obj/Debug/net8.0/HiHelloCard.Repository.GeneratedMSBuildEditorConfig.editorconfig
+/HiHelloCard.Services/obj/Debug/net8.0/HiHelloCard.Services.AssemblyInfo.cs
+/HiHelloCard.Services/obj/Debug/net8.0/HiHelloCard.Services.GeneratedMSBuildEditorConfig.editorconfig
