@@ -2,6 +2,7 @@ using HiHelloCard.Interfaces.Repository;
 using HiHelloCard.Interfaces.Service;
 using HiHelloCard.Mapper;
 using HiHelloCard.Model.Domain;
+using HiHelloCard.Model.ViewModel;
 using HiHelloCard.Model.ViewModel.ApiModel;
 using HiHelloCard.Repository;
 using HiHelloCard.Services;
@@ -30,7 +31,7 @@ builder.Services.AddDbContext<HihelloContext>(options =>
         configuration.GetConnectionString("DefaultConnection"),
         new MySqlServerVersion(new Version(8, 0, 34)),
         optionsBuilder => optionsBuilder.MigrationsAssembly("HiHello")));
-
+builder.Services.AddIdentity<ApplicationUser, Microsoft.AspNetCore.Identity.IdentityRole>().AddEntityFrameworkStores<HihelloContext>().AddDefaultTokenProviders();
 // Add CORS policy
 builder.Services.AddControllersWithViews();
 builder.Services.AddCors(options =>

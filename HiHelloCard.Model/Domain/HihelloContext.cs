@@ -16,11 +16,25 @@ public partial class HihelloContext : DbContext
     {
     }
 
+    public virtual DbSet<Aspnetrole> Aspnetroles { get; set; }
+
+    public virtual DbSet<Aspnetroleclaim> Aspnetroleclaims { get; set; }
+
+    public virtual DbSet<Aspnetuser> Aspnetusers { get; set; }
+
+    public virtual DbSet<Aspnetuserclaim> Aspnetuserclaims { get; set; }
+
+    public virtual DbSet<Aspnetuserlogin> Aspnetuserlogins { get; set; }
+
+    public virtual DbSet<Aspnetusertoken> Aspnetusertokens { get; set; }
+
     public virtual DbSet<Carddesign> Carddesigns { get; set; }
 
     public virtual DbSet<Cardfield> Cardfields { get; set; }
 
     public virtual DbSet<Cardfieldcategory> Cardfieldcategories { get; set; }
+
+    public virtual DbSet<Efmigrationshistory> Efmigrationshistories { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
 
@@ -32,7 +46,7 @@ public partial class HihelloContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseMySql("server=localhost;port=3306;database=hihello;uid=root", Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.4.28-mariadb"));
+        => optionsBuilder.UseMySql("server=localhost;port=3306;database=hihello;uid=root", Microsoft.EntityFrameworkCore.ServerVersion.Parse("10.4.32-mariadb"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -40,62 +54,164 @@ public partial class HihelloContext : DbContext
             .UseCollation("utf8mb4_general_ci")
             .HasCharSet("utf8mb4");
 
+        modelBuilder.Entity<Aspnetrole>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity.ToTable("aspnetroles");
+
+            entity.HasIndex(e => e.NormalizedName, "RoleNameIndex").IsUnique();
+
+            entity.Property(e => e.Name).HasMaxLength(256);
+            entity.Property(e => e.NormalizedName).HasMaxLength(256);
+        });
+
+        modelBuilder.Entity<Aspnetroleclaim>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity.ToTable("aspnetroleclaims");
+
+            entity.HasIndex(e => e.RoleId, "IX_AspNetRoleClaims_RoleId");
+
+            entity.Property(e => e.Id).HasColumnType("int(11)");
+
+            entity.HasOne(d => d.Role).WithMany(p => p.Aspnetroleclaims)
+                .HasForeignKey(d => d.RoleId)
+                .HasConstraintName("FK_AspNetRoleClaims_AspNetRoles_RoleId");
+        });
+
+        modelBuilder.Entity<Aspnetuser>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity.ToTable("aspnetusers");
+
+            entity.HasIndex(e => e.NormalizedEmail, "EmailIndex");
+
+            entity.HasIndex(e => e.NormalizedUserName, "UserNameIndex").IsUnique();
+
+            entity.Property(e => e.AccessFailedCount).HasColumnType("int(11)");
+            entity.Property(e => e.Email).HasMaxLength(256);
+            entity.Property(e => e.LockoutEnd).HasMaxLength(6);
+            entity.Property(e => e.NormalizedEmail).HasMaxLength(256);
+            entity.Property(e => e.NormalizedUserName).HasMaxLength(256);
+            entity.Property(e => e.UserName).HasMaxLength(256);
+
+            entity.HasMany(d => d.Roles).WithMany(p => p.Users)
+                .UsingEntity<Dictionary<string, object>>(
+                    "Aspnetuserrole",
+                    r => r.HasOne<Aspnetrole>().WithMany()
+                        .HasForeignKey("RoleId")
+                        .HasConstraintName("FK_AspNetUserRoles_AspNetRoles_RoleId"),
+                    l => l.HasOne<Aspnetuser>().WithMany()
+                        .HasForeignKey("UserId")
+                        .HasConstraintName("FK_AspNetUserRoles_AspNetUsers_UserId"),
+                    j =>
+                    {
+                        j.HasKey("UserId", "RoleId")
+                            .HasName("PRIMARY")
+                            .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
+                        j.ToTable("aspnetuserroles");
+                        j.HasIndex(new[] { "RoleId" }, "IX_AspNetUserRoles_RoleId");
+                    });
+        });
+
+        modelBuilder.Entity<Aspnetuserclaim>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity.ToTable("aspnetuserclaims");
+
+            entity.HasIndex(e => e.UserId, "IX_AspNetUserClaims_UserId");
+
+            entity.Property(e => e.Id).HasColumnType("int(11)");
+
+            entity.HasOne(d => d.User).WithMany(p => p.Aspnetuserclaims)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("FK_AspNetUserClaims_AspNetUsers_UserId");
+        });
+
+        modelBuilder.Entity<Aspnetuserlogin>(entity =>
+        {
+            entity.HasKey(e => new { e.LoginProvider, e.ProviderKey })
+                .HasName("PRIMARY")
+                .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0 });
+
+            entity.ToTable("aspnetuserlogins");
+
+            entity.HasIndex(e => e.UserId, "IX_AspNetUserLogins_UserId");
+
+            entity.HasOne(d => d.User).WithMany(p => p.Aspnetuserlogins)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("FK_AspNetUserLogins_AspNetUsers_UserId");
+        });
+
+        modelBuilder.Entity<Aspnetusertoken>(entity =>
+        {
+            entity.HasKey(e => new { e.UserId, e.LoginProvider, e.Name })
+                .HasName("PRIMARY")
+                .HasAnnotation("MySql:IndexPrefixLength", new[] { 0, 0, 0 });
+
+            entity.ToTable("aspnetusertokens");
+
+            entity.HasOne(d => d.User).WithMany(p => p.Aspnetusertokens)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("FK_AspNetUserTokens_AspNetUsers_UserId");
+        });
+
         modelBuilder.Entity<Carddesign>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.ToTable("carddesign");
+            entity.ToTable("carddesigns");
 
-            entity.Property(e => e.Id)
-                .HasColumnType("int(11)")
-                .HasColumnName("ID");
+            entity.Property(e => e.Id).HasColumnType("int(11)");
         });
 
         modelBuilder.Entity<Cardfield>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.ToTable("cardfield");
+            entity.ToTable("cardfields");
 
-            entity.HasIndex(e => e.CategoryId, "CategoryId");
+            entity.HasIndex(e => e.CategoryId, "IX_Cardfields_CategoryId");
 
-            entity.Property(e => e.Id)
-                .HasColumnType("int(11)")
-                .HasColumnName("ID");
+            entity.Property(e => e.Id).HasColumnType("int(11)");
             entity.Property(e => e.CategoryId).HasColumnType("int(11)");
-            entity.Property(e => e.Description).HasMaxLength(250);
 
             entity.HasOne(d => d.Category).WithMany(p => p.Cardfields)
                 .HasForeignKey(d => d.CategoryId)
-                .HasConstraintName("cardfield_ibfk_1");
+                .HasConstraintName("FK_Cardfields_Cardfieldcategories_CategoryId");
         });
 
         modelBuilder.Entity<Cardfieldcategory>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.ToTable("cardfieldcategory");
+            entity.ToTable("cardfieldcategories");
 
-            entity.Property(e => e.Id)
-                .HasColumnType("int(11)")
-                .HasColumnName("ID");
-            entity.Property(e => e.Description).HasMaxLength(250);
+            entity.Property(e => e.Id).HasColumnType("int(11)");
+        });
+
+        modelBuilder.Entity<Efmigrationshistory>(entity =>
+        {
+            entity.HasKey(e => e.MigrationId).HasName("PRIMARY");
+
+            entity.ToTable("__efmigrationshistory");
+
+            entity.Property(e => e.MigrationId).HasMaxLength(150);
+            entity.Property(e => e.ProductVersion).HasMaxLength(32);
         });
 
         modelBuilder.Entity<User>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.ToTable("user");
+            entity.ToTable("users");
 
-            entity.Property(e => e.Id)
-                .HasColumnType("int(11)")
-                .HasColumnName("ID");
+            entity.Property(e => e.Id).HasColumnType("int(11)");
             entity.Property(e => e.CreatedDateTime).HasMaxLength(6);
-            entity.Property(e => e.Email).HasMaxLength(250);
-            entity.Property(e => e.Guid)
-                .HasMaxLength(250)
-                .HasColumnName("GUID");
             entity.Property(e => e.UpdatedDateTime).HasMaxLength(6);
         });
 
@@ -103,88 +219,64 @@ public partial class HihelloContext : DbContext
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.ToTable("usercard");
+            entity.ToTable("usercards");
 
-            entity.HasIndex(e => e.DesignId, "DesignId");
+            entity.HasIndex(e => e.DesignId, "IX_Usercards_DesignId");
 
-            entity.HasIndex(e => e.UserId, "UserId");
+            entity.HasIndex(e => e.UserId, "IX_Usercards_UserId");
 
-            entity.Property(e => e.Id)
-                .HasColumnType("int(11)")
-                .HasColumnName("ID");
-            entity.Property(e => e.Accreditations).HasMaxLength(250);
-            entity.Property(e => e.AffiliateTitle).HasMaxLength(250);
-            entity.Property(e => e.Color).HasMaxLength(250);
-            entity.Property(e => e.Company).HasMaxLength(250);
+            entity.Property(e => e.Id).HasColumnType("int(11)");
             entity.Property(e => e.CreatedDateTime).HasMaxLength(6);
-            entity.Property(e => e.Department).HasMaxLength(250);
             entity.Property(e => e.DesignId).HasColumnType("int(11)");
-            entity.Property(e => e.FirstName).HasMaxLength(250);
-            entity.Property(e => e.Guid).HasMaxLength(250);
-            entity.Property(e => e.Headline).HasMaxLength(250);
-            entity.Property(e => e.LastName).HasMaxLength(250);
-            entity.Property(e => e.MaidenName).HasMaxLength(250);
-            entity.Property(e => e.MiddleName).HasMaxLength(250);
-            entity.Property(e => e.Name).HasMaxLength(250);
-            entity.Property(e => e.PreferredName).HasMaxLength(250);
-            entity.Property(e => e.Prefix).HasMaxLength(250);
-            entity.Property(e => e.Pronouns).HasMaxLength(250);
-            entity.Property(e => e.Suffix).HasMaxLength(250);
             entity.Property(e => e.UpdatedDateTime).HasMaxLength(6);
             entity.Property(e => e.UserId).HasColumnType("int(11)");
 
             entity.HasOne(d => d.Design).WithMany(p => p.Usercards)
                 .HasForeignKey(d => d.DesignId)
-                .HasConstraintName("usercard_ibfk_2");
+                .HasConstraintName("FK_Usercards_Carddesigns_DesignId");
 
             entity.HasOne(d => d.User).WithMany(p => p.Usercards)
                 .HasForeignKey(d => d.UserId)
-                .HasConstraintName("usercard_ibfk_1");
+                .HasConstraintName("FK_Usercards_Users_UserId");
         });
 
         modelBuilder.Entity<Usercardbadge>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.ToTable("usercardbadge");
+            entity.ToTable("usercardbadges");
 
-            entity.HasIndex(e => e.CardId, "CardId");
+            entity.HasIndex(e => e.CardId, "IX_Usercardbadges_CardId");
 
-            entity.Property(e => e.Id)
-                .HasColumnType("int(11)")
-                .HasColumnName("ID");
+            entity.Property(e => e.Id).HasColumnType("int(11)");
             entity.Property(e => e.CardId).HasColumnType("int(11)");
 
             entity.HasOne(d => d.Card).WithMany(p => p.Usercardbadges)
                 .HasForeignKey(d => d.CardId)
-                .HasConstraintName("usercardbadge_ibfk_1");
+                .HasConstraintName("FK_Usercardbadges_Usercards_CardId");
         });
 
         modelBuilder.Entity<Usercardfield>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
 
-            entity.ToTable("usercardfield");
+            entity.ToTable("usercardfields");
 
-            entity.HasIndex(e => e.CardId, "CardId");
+            entity.HasIndex(e => e.CardFieldId, "IX_Usercardfields_CardFieldId");
 
-            entity.HasIndex(e => e.CardFieldId, "usercardfield_ibfk_2");
+            entity.HasIndex(e => e.CardId, "IX_Usercardfields_CardId");
 
-            entity.Property(e => e.Id)
-                .HasColumnType("int(11)")
-                .HasColumnName("ID");
+            entity.Property(e => e.Id).HasColumnType("int(11)");
             entity.Property(e => e.CardFieldId).HasColumnType("int(11)");
             entity.Property(e => e.CardId).HasColumnType("int(11)");
-            entity.Property(e => e.Description).HasMaxLength(250);
-            entity.Property(e => e.Link).HasMaxLength(250);
 
             entity.HasOne(d => d.CardField).WithMany(p => p.Usercardfields)
                 .HasForeignKey(d => d.CardFieldId)
-                .HasConstraintName("usercardfield_ibfk_2");
+                .HasConstraintName("FK_Usercardfields_Cardfields_CardFieldId");
 
             entity.HasOne(d => d.Card).WithMany(p => p.Usercardfields)
                 .HasForeignKey(d => d.CardId)
-                .HasConstraintName("usercardfield_ibfk_1");
+                .HasConstraintName("FK_Usercardfields_Usercards_CardId");
         });
 
         OnModelCreatingPartial(modelBuilder);
