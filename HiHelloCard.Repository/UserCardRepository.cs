@@ -16,12 +16,14 @@ namespace HiHelloCard.Repository
 
         public IEnumerable<Usercard> GetCardslist(string userguid, string d)
         {
-            return _dbContext.Usercards.Where(x => x.User.Guid == userguid && !x.IsArchive.Value).OrderBy(d);
+            //return _dbContext.Usercards.Where(x => x.User.Guid == userguid && !x.IsArchive.Value).OrderBy(d);
+            return null;
         }
 
         public Usercard GetByGuid(string guid)
         {
-            return _dbContext.Usercards.Include(cf => cf.Usercardfields).Include(cb => cb.Usercardbadges).FirstOrDefault(x => x.Guid == guid);
+            return null;
+            //return _dbContext.Usercards.Include(cf => cf.Usercardfields).Include(cb => cb.Usercardbadges).FirstOrDefault(x => x.Guid == guid);
         }
     }
 }

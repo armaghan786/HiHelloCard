@@ -214,6 +214,7 @@ D:\AlphaSquared\HiHelloCard\HiHelloCard\bin\Debug\net8.0\HiHelloCard.deps.json
 D:\AlphaSquared\HiHelloCard\HiHelloCard\bin\Debug\net8.0\HiHelloCard.runtimeconfig.json
 D:\AlphaSquared\HiHelloCard\HiHelloCard\bin\Debug\net8.0\HiHelloCard.dll
 D:\AlphaSquared\HiHelloCard\HiHelloCard\bin\Debug\net8.0\HiHelloCard.pdb
+D:\AlphaSquared\HiHelloCard\HiHelloCard\bin\Debug\net8.0\HiHelloCard.xml
 D:\AlphaSquared\HiHelloCard\HiHelloCard\bin\Debug\net8.0\AutoMapper.dll
 D:\AlphaSquared\HiHelloCard\HiHelloCard\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 D:\AlphaSquared\HiHelloCard\HiHelloCard\bin\Debug\net8.0\Azure.Core.dll
@@ -229,6 +230,9 @@ D:\AlphaSquared\HiHelloCard\HiHelloCard\bin\Debug\net8.0\MedallionTopologicalSor
 D:\AlphaSquared\HiHelloCard\HiHelloCard\bin\Debug\net8.0\System.Net.Http.Formatting.dll
 D:\AlphaSquared\HiHelloCard\HiHelloCard\bin\Debug\net8.0\System.Web.Http.dll
 D:\AlphaSquared\HiHelloCard\HiHelloCard\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\AlphaSquared\HiHelloCard\HiHelloCard\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+D:\AlphaSquared\HiHelloCard\HiHelloCard\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+D:\AlphaSquared\HiHelloCard\HiHelloCard\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 D:\AlphaSquared\HiHelloCard\HiHelloCard\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 D:\AlphaSquared\HiHelloCard\HiHelloCard\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
 D:\AlphaSquared\HiHelloCard\HiHelloCard\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
@@ -246,6 +250,9 @@ D:\AlphaSquared\HiHelloCard\HiHelloCard\bin\Debug\net8.0\Microsoft.EntityFramewo
 D:\AlphaSquared\HiHelloCard\HiHelloCard\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.HierarchyId.dll
 D:\AlphaSquared\HiHelloCard\HiHelloCard\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite.dll
 D:\AlphaSquared\HiHelloCard\HiHelloCard\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+D:\AlphaSquared\HiHelloCard\HiHelloCard\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+D:\AlphaSquared\HiHelloCard\HiHelloCard\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+D:\AlphaSquared\HiHelloCard\HiHelloCard\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 D:\AlphaSquared\HiHelloCard\HiHelloCard\bin\Debug\net8.0\Microsoft.Identity.Client.dll
 D:\AlphaSquared\HiHelloCard\HiHelloCard\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
 D:\AlphaSquared\HiHelloCard\HiHelloCard\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
@@ -415,8 +422,7 @@ D:\AlphaSquared\HiHelloCard\HiHelloCard\obj\Debug\net8.0\scopedcss\projectbundle
 D:\AlphaSquared\HiHelloCard\HiHelloCard\obj\Debug\net8.0\HiHelloC.7CACBF4B.Up2Date
 D:\AlphaSquared\HiHelloCard\HiHelloCard\obj\Debug\net8.0\HiHelloCard.dll
 D:\AlphaSquared\HiHelloCard\HiHelloCard\obj\Debug\net8.0\refint\HiHelloCard.dll
+D:\AlphaSquared\HiHelloCard\HiHelloCard\obj\Debug\net8.0\HiHelloCard.xml
 D:\AlphaSquared\HiHelloCard\HiHelloCard\obj\Debug\net8.0\HiHelloCard.pdb
 D:\AlphaSquared\HiHelloCard\HiHelloCard\obj\Debug\net8.0\HiHelloCard.genruntimeconfig.cache
 D:\AlphaSquared\HiHelloCard\HiHelloCard\obj\Debug\net8.0\ref\HiHelloCard.dll
-D:\AlphaSquared\HiHelloCard\HiHelloCard\bin\Debug\net8.0\HiHelloCard.xml
-D:\AlphaSquared\HiHelloCard\HiHelloCard\obj\Debug\net8.0\HiHelloCard.xml
