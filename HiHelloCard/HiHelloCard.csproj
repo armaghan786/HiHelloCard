@@ -28,4 +28,10 @@
     <ProjectReference Include="..\HiHelloCard.Services\HiHelloCard.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\Image\Logo\" />
+    <Folder Include="wwwroot\Image\Badge\" />
+    <Folder Include="wwwroot\Image\Profile\" />
+  </ItemGroup>
+
 </Project>

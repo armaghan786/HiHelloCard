@@ -33,7 +33,7 @@ public partial class Usercard
 
     public int? DesignId { get; set; }
 
-    public int? UserId { get; set; }
+    public string? UserId { get; set; }
 
     public string? Color { get; set; }
 
@@ -55,7 +55,7 @@ public partial class Usercard
 
     public virtual Carddesign? Design { get; set; }
 
-    public virtual User? User { get; set; }
+    public virtual Aspnetuser? User { get; set; }
 
     public virtual ICollection<Usercardbadge> Usercardbadges { get; set; } = new List<Usercardbadge>();
 

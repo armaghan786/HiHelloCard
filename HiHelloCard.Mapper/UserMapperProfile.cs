@@ -13,14 +13,7 @@ namespace HiHelloCard.Mapper
     {
         public UserMapperProfile()
         {
-            CreateMap<User, UserModel>();
-
-            CreateMap<UserModel, User>()
-                .ForMember(g => g.Guid, opt => opt.MapFrom(src => Guid.NewGuid().ToString()))
-                .ForMember(g => g.IsActive, opt => opt.MapFrom(src => true))
-                .ForMember(g => g.IsArchive, opt => opt.MapFrom(src => false))
-                .ForMember(g => g.CreatedDateTime, opt => opt.MapFrom(src => DateTime.UtcNow))
-                .ForMember(g => g.UpdatedDateTime, opt => opt.MapFrom(src => DateTime.UtcNow));
+            CreateMap<UserModel, ApplicationUser>().ReverseMap();
         }
     }
 }

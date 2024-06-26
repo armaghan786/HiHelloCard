@@ -25,14 +25,28 @@ using System.Threading.Tasks;
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+
 builder.Services.AddDbContext<HihelloContext>(options =>
     options.UseMySql(
         configuration.GetConnectionString("DefaultConnection"),
         new MySqlServerVersion(new Version(8, 0, 34)),
         optionsBuilder => optionsBuilder.MigrationsAssembly("HiHello")));
 builder.Services.AddIdentity<ApplicationUser, Microsoft.AspNetCore.Identity.IdentityRole>().AddEntityFrameworkStores<HihelloContext>().AddDefaultTokenProviders();
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.Password.RequireDigit = true;
+    options.Password.RequiredLength = 6;
+    options.Password.RequireNonAlphanumeric = true;
+    options.Password.RequireUppercase = true;
+    options.Password.RequireLowercase = true;
+    options.SignIn.RequireConfirmedEmail = true;
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(1);
+    options.Lockout.MaxFailedAccessAttempts = 50;
+});
+builder.Services.AddRouting(options => options.LowercaseUrls = true);
+
 // Add CORS policy
+builder.Services.AddControllersWithViews();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowOrigin", builder =>
@@ -86,7 +100,6 @@ builder.Services.AddScoped<IUserCardFieldRepository, UserCardFieldRepository>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserCardService, UserCardService>();
-
 builder.Services.AddControllersWithViews();
 builder.Services.AddMvc().AddRazorOptions(options =>
 {
@@ -139,8 +152,8 @@ app.UseSwaggerUI(options =>
     options.DocumentTitle = "My Swagger";
 
 });
-//app.MapControllerRoute(
-//    name: "default",
-//    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

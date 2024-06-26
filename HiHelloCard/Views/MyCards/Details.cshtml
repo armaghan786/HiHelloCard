@@ -1,0 +1,15 @@
+﻿@model HiHelloCard.Model.ViewModel.UserCardModel
+
+<div>
+    <h1>@Model.Name's Details</h1>
+    <p><strong>First Name:</strong> @Model.FirstName</p>
+    <p><strong>Middle Name:</strong> @Model.MiddleName</p>
+    <p><strong>Last Name:</strong> @Model.LastName</p>
+    <p><strong>Affiliate Title:</strong> @Model.AffiliateTitle</p>
+    <p><strong>Department:</strong> @Model.Department</p>
+    <p><strong>Company:</strong> @Model.Company</p>
+    <p><strong>Headline:</strong> @Model.Headline</p>
+
+    <h2>QR Code</h2>
+    <img style="width:300px;" src="@Model.QrCodeBase64" alt="QR Code">
+</div>

@@ -40,7 +40,7 @@ namespace HiHelloCard.Api
         public async Task<object> AddEdit(UserCardModel cardmodel)
         {
             var data = Constant.ReturnData(HttpContext);
-            return await _userCardService.AddEditCard(cardmodel, data.UserId, Request.Form.Files);
+            return await _userCardService.AddEditCard(cardmodel, data.UserGUID, Request.Form.Files);
         }
 
         [HttpGet]
