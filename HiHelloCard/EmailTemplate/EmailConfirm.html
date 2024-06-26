@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Helvetica,sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 535px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 2px;
+        }
+
+        .w-100 {
+            width: 100%;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            background-color: #f2f2f2;
+            font-size: 16px;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            width: 100%; /* Set the width of the container */
+            margin-bottom: 15px;
+        }
+
+            .image-container img {
+                display: block; /* Ensure the image is treated as a block element */
+                max-width: 100%; /* Ensure the image does not exceed the container's width */
+                margin: 15px auto;
+            }
+
+        h2 {
+            color: #000;
+            font-weight: 100;
+            margin-bottom: 40px;
+        }
+
+        p {
+            color: #000;
+        }
+
+        a.button {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #59d6b8;
+            border-radius: 23px;
+            text-align: center;
+            width: 40%;
+            margin: 15px auto; /* Center-align the button horizontally */
+            margin-top: 38px;
+            margin-bottom: 38px;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="w-100">
+        <div class="container">
+            <div class="image-container">
+                <img src="https://osteoonthego.com/asset/media/Custom/Group12.png" />
+            </div>
+            <h2>Verify email address</h2>
+            <p style="margin-bottom:22px;">Dear User,</p>
+            <p>Welcome to {{AppTitle}} ! We're delighted to have you as a part of our community. To ensure the security of your account, we need to verify your email address.</p>
+            <p>Please click on the below to verify your email id.</p>
+            <a href="{{Link}}"></a>
+            <p style="margin-bottom:38px">If you have any questions or need assistance, please don't hesitate to contact our support team at <a href="mailto:{{OestEmail}}">{{OestEmail}}</a>.</p>
+            <p>Thank you,<br>The {{AppTitle}} Team</p>
+        </div>
+    </div>
+</body>
+</html>

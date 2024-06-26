@@ -12,6 +12,7 @@ namespace HiHelloCard.Interfaces.Service
     public interface IUserService : IBaseService<UserModel>
     {
         Task<BaseResponse> SignUp(UserModel sModel);
+        Task<BaseResponse> ConfirmEmailAsync(string uid, string token);
         Task<BaseResponse> AppLogin(UserModel login, AppSettings _appSetting);
     }
 }
