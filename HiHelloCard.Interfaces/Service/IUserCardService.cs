@@ -12,7 +12,7 @@ namespace HiHelloCard.Interfaces.Service
     public interface IUserCardService : IBaseService<UserCardModel>
     {
         Task<BaseListResponse> LoadData(ClientDataTableRequest model, string userGuid);
-        Task<BaseResponse> AddEditCard(UserCardModel model, int userId, IFormFileCollection files);
+        Task<BaseResponse> AddEditCard(UserCardModel model, string userId, IFormFileCollection files);
         Task<BaseResponse> CardDetails(string guid);
     }
 }

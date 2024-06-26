@@ -35,7 +35,7 @@ namespace HiHelloCard.Model.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Carddesigns");
+                    b.ToTable("Carddesigns", (string)null);
                 });
 
             modelBuilder.Entity("HiHelloCard.Model.Domain.Cardfield", b =>
@@ -56,7 +56,7 @@ namespace HiHelloCard.Model.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Cardfields");
+                    b.ToTable("Cardfields", (string)null);
                 });
 
             modelBuilder.Entity("HiHelloCard.Model.Domain.Cardfieldcategory", b =>
@@ -72,7 +72,7 @@ namespace HiHelloCard.Model.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Cardfieldcategories");
+                    b.ToTable("Cardfieldcategories", (string)null);
                 });
 
             modelBuilder.Entity("HiHelloCard.Model.Domain.User", b =>
@@ -106,7 +106,7 @@ namespace HiHelloCard.Model.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("HiHelloCard.Model.Domain.Usercard", b =>
@@ -192,7 +192,7 @@ namespace HiHelloCard.Model.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Usercards");
+                    b.ToTable("Usercards", (string)null);
                 });
 
             modelBuilder.Entity("HiHelloCard.Model.Domain.Usercardbadge", b =>
@@ -213,7 +213,7 @@ namespace HiHelloCard.Model.Migrations
 
                     b.HasIndex("CardId");
 
-                    b.ToTable("Usercardbadges");
+                    b.ToTable("Usercardbadges", (string)null);
                 });
 
             modelBuilder.Entity("HiHelloCard.Model.Domain.Usercardfield", b =>
@@ -242,7 +242,7 @@ namespace HiHelloCard.Model.Migrations
 
                     b.HasIndex("CardId");
 
-                    b.ToTable("Usercardfields");
+                    b.ToTable("Usercardfields", (string)null);
                 });
 
             modelBuilder.Entity("HiHelloCard.Model.ViewModel.ApplicationUser", b =>

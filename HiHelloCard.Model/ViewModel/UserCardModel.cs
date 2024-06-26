@@ -24,7 +24,7 @@ namespace HiHelloCard.Model.ViewModel
         public string ProfilePhoto { get; set; }
         public IFormFile UserProfile { set; get; }
         public int? DesignId { get; set; }
-        public int? UserId { get; set; }
+        public string? UserId { get; set; }
         public string Color { get; set; }
         public string Logo { get; set; }
         public IFormFile UserLogo { set; get; }
