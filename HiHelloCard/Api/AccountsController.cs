@@ -33,21 +33,7 @@ namespace HiHelloCard.Api
         [HttpGet]
         public async Task<object> Signin(UserModel credentials)
         {
-
             return _accountService.AppLogin(credentials, _appSettings).Result.Data;
-
-        }
-
-        [HttpGet("confirm-email")]
-        public async Task<object> ConfirmEmail(string uid, string token)
-        {
-            if (!string.IsNullOrEmpty(uid) && !string.IsNullOrEmpty(token))
-            {
-                token = token.Replace(' ', '+');
-                return await _accountService.ConfirmEmailAsync(uid, token);
-            }
-            else
-                return new object();
         }
     }
 }

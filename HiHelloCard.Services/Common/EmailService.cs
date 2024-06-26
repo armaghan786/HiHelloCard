@@ -33,29 +33,24 @@ namespace HiHelloCard.Services.Common
         {
             MailMessage mail = new MailMessage
             {
+                From = new MailAddress(_smtpConfig.UserName),
                 Subject = userEmailOptions.Subject,
                 Body = userEmailOptions.Body,
-                From = new MailAddress(_smtpConfig.SenderAddress,_smtpConfig.SenderDisplayName),
                 IsBodyHtml = _smtpConfig.IsBodyHTML
             };
             foreach(var toemails in userEmailOptions.ToEmails)
             {
                 mail.To.Add(toemails);
             }
-
             NetworkCredential networkCredential = new NetworkCredential(_smtpConfig.UserName, _smtpConfig.Password);
 
-            SmtpClient smtpClient = new SmtpClient
+            using (var smtpClient = new SmtpClient(_smtpConfig.Host, _smtpConfig.Port))
             {
-                Host = _smtpConfig.Host,
-                Port = _smtpConfig.Port,
-                EnableSsl = _smtpConfig.EnableSSL,
-                UseDefaultCredentials = _smtpConfig.UseDefaultCredentials,
-                Credentials = networkCredential
-            };
-            mail.BodyEncoding = Encoding.Default;
+                smtpClient.Credentials = new NetworkCredential(_smtpConfig.UserName, _smtpConfig.Password);
+                smtpClient.EnableSsl = _smtpConfig.EnableSSL;
 
-            await smtpClient.SendMailAsync(mail);
+                await smtpClient.SendMailAsync(mail);
+            }
         }
 
         private string UpdatePlaceHolders(string text, List<KeyValuePair<string, string>> keyValuePairs)
