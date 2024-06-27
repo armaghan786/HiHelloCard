@@ -21,7 +21,7 @@ namespace HiHelloCard.Helpers
         {
             var identity = await base.GenerateClaimsAsync(user);
             identity.AddClaim(new Claim("UserEmail", user.Email ?? ""));
-            identity.AddClaim(new Claim("UserGuid", user.Id ?? ""));
+            identity.AddClaim(new Claim("UserGuid", user.Guid ?? ""));
             return identity;
         }
     }

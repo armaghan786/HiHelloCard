@@ -129,3 +129,5 @@
 /HiHelloCard.Services/obj/project.assets.json
 /HiHelloCard.Services/obj/HiHelloCard.Services.csproj.nuget.g.props
 /HiHelloCard.Services/obj/project.nuget.cache
+/HiHelloCard/obj/Debug/net8.0/HiHelloCard.GeneratedMSBuildEditorConfig.editorconfig
+/HiHelloCard/obj/Debug/net8.0/project.razor.vs.bin

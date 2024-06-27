@@ -4,8 +4,10 @@ using HiHelloCard.Mapper;
 using HiHelloCard.Model.Domain;
 using HiHelloCard.Model.ViewModel;
 using HiHelloCard.Model.ViewModel.ApiModel;
+using HiHelloCard.Model.ViewModel.Common;
 using HiHelloCard.Repository;
 using HiHelloCard.Services;
+using HiHelloCard.Services.Common;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -100,12 +102,13 @@ builder.Services.AddScoped<IUserCardFieldRepository, UserCardFieldRepository>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserCardService, UserCardService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddMvc().AddRazorOptions(options =>
 {
     options.ViewLocationFormats.Add("/{0}.cshtml");
 });
-
+builder.Services.Configure<SMTPConfigModel>(configuration.GetSection("SMTPConfig"));
 // Add services to the container.
 builder.Services.AddEndpointsApiExplorer();
 

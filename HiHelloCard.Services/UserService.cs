@@ -23,6 +23,7 @@ namespace HiHelloCard.Services
         private readonly UserManager<ApplicationUser> _userManager;
         public UserService(IUserRepository userRepository, UserManager<ApplicationUser> userManager, IMapper mapper) : base(userRepository, mapper)
         {
+            _userRepository = userRepository;
             _userManager = userManager;
         }
 
@@ -42,24 +43,24 @@ namespace HiHelloCard.Services
                         Email = sModel.Email,
                         IsActive = false,
                         IsArchive = false,
-                        UserName = sModel.Email
+                        UserName = sModel.Email,
+                        Guid = Guid.NewGuid().ToString()
                     };
-                    await _userManager.CreateAsync(user, sModel.Password);
+                    var resp = await _userManager.CreateAsync(user, sModel.Password);
+                    if(resp.Succeeded)
+                    {
+                        var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                        if(!string.IsNullOrEmpty(token))
+                        {
+                            await _userRepository.SendEmailConfirmationEmail(user, token);
+                        }
+                    }
                 }
                 catch (Exception e)
                 {
                     IdentityError message = new IdentityError();
                     message.Description = e.Message;
                 }
-
-                //var data = new User();
-                //data.Guid = Guid.NewGuid().ToString();
-                //data.Email = sModel.Email;
-                //data.Password = Constant.Encrypt(sModel.Password);
-                //data.IsActive = true;
-                //data.IsArchive = false;
-                //data.CreatedDateTime = DateTime.UtcNow;
-                //await _userRepository.Add(data);
                 return Constant.Response(Constant.success, new object(), "Signup successfull.");
 
             }
@@ -69,29 +70,37 @@ namespace HiHelloCard.Services
             }
         }
 
+        public async Task<BaseResponse> ConfirmEmailAsync(string uid, string token)
+        {
+            var resp = await _userRepository.ConfirmEmailAsync(uid, token);
+            if (resp.Succeeded)
+                return Constant.Response(Constant.success, new object(), "");
+
+            return Constant.Response("", new object(), resp.Errors.Any() ? resp.Errors.FirstOrDefault().Description : "");
+        }
+
         public async Task<BaseResponse> AppLogin(UserModel login, AppSettings _appSetting)
         {
             try
             {
-                //var user = _userRepository.FirstOrDefault(x =>
-                //x.Email.ToLower().Contains(login.Email)
-                //&& !x.IsArchive.Value && x.IsActive.Value);
-                //if (user != null)
-                //{
-                //    var password = Constant.Decrypt(user.Password);
-                //    if (login.Password == password)
-                //    {
-                //        var data = new UserAppModel();
-                //        data.GUID = user.Guid;
-                //        data.Email = login.Email;
-                //        data.Id = user.Id;
-                //        login.Id = user.Id;
-                //        login.Guid = user.Guid;
-                //        data.OauthToken =  Constant.token(login, _appSetting);
-                //        return Constant.Response(Constant.success, data, "Login successfull.");
-                //    }
-                //    return Constant.Response(Constant.error, new object(), "Invalid credentioals.");
-                //}
+                var resp = await _userRepository.PasswordSignInAsync(login);
+                if (resp.Succeeded)
+                {
+                    var user = _userManager.Users.FirstOrDefault(x => x.Email == login.Email);
+                        var data = new UserAppModel();
+                        data.GUID = user.Guid;
+                        data.Email = login.Email;
+                        data.Id = user.Id;
+                        login.Id = user.Id;
+                        login.Guid = user.Guid;
+                        data.OauthToken = Constant.token(login, _appSetting);
+                        return Constant.Response(Constant.success, data, "Login successfull.");
+                }
+                if (resp.IsNotAllowed)
+                    return Constant.Response(Constant.notallowed, new object(), "Not allowed to login");
+                else if (resp.IsLockedOut)
+                    return Constant.Response(Constant.error, new object(), "Account blocked. Try after some time.");
+
                 return Constant.Response(Constant.error, new object(), "Invalid credentioals.");
             }
             catch (Exception ex)
