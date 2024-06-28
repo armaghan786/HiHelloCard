@@ -200,6 +200,7 @@ namespace HiHelloCard.Services
                         model.Pronouns = getData.Pronouns;
                         model.ProfilePhoto = getData.ProfilePhoto != null ? "Image/Profile/" + getData.ProfilePhoto : "asset/media/avatars/blank.png";
                         model.DesignId = getData.DesignId;
+                        model.Design = getData.Design != null ? getData.Design.Content : "";
                         model.UserId = getData.UserId;
                         model.Color = getData.Color;
                         model.Logo = getData.Logo != null ? "Image/Logo/" + getData.Logo : "asset/media/avatars/blank.png";
@@ -210,15 +211,15 @@ namespace HiHelloCard.Services
                         model.IsArchive = getData.IsArchive;
                         model.CreatedDateTime = getData.CreatedDateTime;
                         model.UpdatedDateTime = getData.UpdatedDateTime;
-                        //model.CardBadges = getData.Usercardbadges.Select(x => new UserCardBadgeModel { Id = x.Id, BadgePath = "/Image/Badge/" + x.BadgePath, CardId = x.CardId }).ToList();
-                        //model.CardFields = getData.Usercardfields.Select(x => new UserCardFieldModel
-                        //{
-                        //    Id = x.Id,
-                        //    CardFieldId = x.CardFieldId,
-                        //    CardId = x.CardId,
-                        //    Link = x.Link,
-                        //    Description = x.Description,
-                        //}).ToList();
+                        model.CardBadges = getData.Usercardbadges.Select(x => new UserCardBadgeModel { Id = x.Id, BadgePath = "/Image/Badge/" + x.BadgePath, CardId = x.CardId }).ToList();
+                        model.CardFields = getData.Usercardfields.Select(x => new UserCardFieldModel
+                        {
+                            Id = x.Id,
+                            CardFieldId = x.CardFieldId,
+                            CardId = x.CardId,
+                            Link = x.Link,
+                            Description = x.Description,
+                        }).ToList();
                         return Constant.Response("success", model, "");
                     }
                 }

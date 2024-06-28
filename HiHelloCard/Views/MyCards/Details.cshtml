@@ -1,15 +1,249 @@
 ﻿@model HiHelloCard.Model.ViewModel.UserCardModel
 
-<div>
-    <h1>@Model.Name's Details</h1>
-    <p><strong>First Name:</strong> @Model.FirstName</p>
-    <p><strong>Middle Name:</strong> @Model.MiddleName</p>
-    <p><strong>Last Name:</strong> @Model.LastName</p>
-    <p><strong>Affiliate Title:</strong> @Model.AffiliateTitle</p>
-    <p><strong>Department:</strong> @Model.Department</p>
-    <p><strong>Company:</strong> @Model.Company</p>
-    <p><strong>Headline:</strong> @Model.Headline</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .flat-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 350px;
+            max-width: 100%;
+            text-align: left;
+            position: relative; /* Ensure relative positioning for absolute child */
+        }
 
-    <h2>QR Code</h2>
-    <img style="width:300px;" src="@Model.QrCodeBase64" alt="QR Code">
-</div>
+        .header-wrapper {
+            position: relative; /* Ensure relative positioning for absolute child */
+        }
+
+        .header-block {
+            background: #8f60de;
+            height: 5rem; /* Initial height when no image */
+            width: 100%; /* Full width of parent */
+            position: absolute; /* Position at bottom of parent */
+            bottom: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: height 0.3s ease-out; /* Smooth transition for height change */
+        }
+
+        .flat-card img {
+            width: 100%;
+            height: auto;
+            display: block; /* Ensure image is displayed */
+        }
+
+        .flat-card-body {
+            padding: 20px;
+            position: relative;
+        }
+
+        .flat-card h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            line-height: 2.25rem;
+            color: #333;
+            margin-bottom: 0 !important;
+        }
+
+        .flat-card p {
+            color: #777;
+            margin-bottom: 0 !important;
+        }
+
+        .flat-card .department {
+            color: rgb(143, 96, 222);
+            font-size: 1.25rem;
+            line-height: 2rem;
+            font-weight: 700;
+        }
+
+        .flat-card .title {
+            font-size: 1.25rem;
+            font-weight: 400;
+            white-space: pre-wrap;
+            line-height: 2rem;
+            color: black;
+        }
+
+        .flat-card .company {
+            font-size: 1.25rem;
+            line-height: 2rem;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .flat-card .headline {
+            margin-top: 10px;
+        }
+
+        .contact-section-flat {
+            display: flex;
+            align-items: center;
+            margin: 2px 10px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+            .contact-section-flat:hover {
+                background-color: #e0b3ff;
+            }
+
+        .contact-icon-flat {
+            width: 15%;
+            text-align: center;
+        }
+
+        .contact-icon-circle-flat {
+            width: 40px;
+            height: 40px;
+            background-color: #8f60de;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5em;
+        }
+
+        .contact-info-flat {
+            width: 85%;
+            font-size: 1.1rem;
+            line-height: 1.5rem;
+            margin: 0;
+            white-space: pre-wrap;
+            padding-left: 10px;
+        }
+
+        .icon-size {
+            font-size: 20px;
+        }
+
+        .css-k008qs {
+            display: flex;
+        }
+
+        .goesby-div {
+            display: block;
+            margin-top: 12px;
+        }
+
+        .goesby-child {
+            -webkit-box-align: center;
+            align-items: center;
+            color: rgb(154, 154, 154);
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .css-urgf3q {
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.5rem;
+            padding-left: 0.5rem;
+        }
+
+        .css-1pgo1xp {
+            font-size: 1.1rem;
+            font-weight: 600;
+            line-height: 1.5rem;
+        }
+
+        .css-1q6u1tv {
+            font-size: 1.1rem;
+            font-style: italic;
+            font-weight: 600;
+            line-height: 1.5rem;
+            padding-left: 0.25rem;
+        }
+
+        .css-1odmx9x {
+            vertical-align: middle;
+            display: inline-block;
+            line-height: 1em;
+            flex-shrink: 0;
+            color: currentcolor;
+            fill: rgb(154, 154, 154);
+            height: 0.875rem;
+            width: 0.875rem;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="flat-card">
+        <div class="header-wrapper">
+            @* <img src="~/image/profile/download (3).jfif" alt="Profile Image" class="profile-image" id="profile-image"> *@
+            <img src="@Model.ProfilePhoto" alt="Profile Image" class="profile-image" id="profile-image">
+            <div class="header-block" id="header-block">
+            </div>
+        </div>
+        <div class="flat-card-body">
+            <h1>@Model.FirstName @Model.MiddleName @Model.LastName</h1>
+            <p class="title">@Model.AffiliateTitle</p>
+            <p class="department">@Model.Department</p>
+            <p class="company">@Model.Company</p>
+            <p class="headline">@Model.Headline</p>
+            <div class="goesby-div">
+                <div class="goesby-child">
+                    @if (!string.IsNullOrEmpty(Model.PreferredName))
+                    {
+                        <svg viewBox="0 0 14 14" focusable="false" class="chakra-icon chakra-icon css-1odmx9x"><path d="M0 3C0 1.89543 0.895431 1 2 1H12C13.1046 1 14 1.89543 14 3V8.625C14 9.72957 13.1046 10.625 12 10.625H5.41128C5.14607 10.625 4.89171 10.7304 4.70418 10.9179L2.26213 13.3599C2.07314 13.5489 1.75 13.4151 1.75 13.1478V11.2083C1.75 10.8862 1.48883 10.625 1.16667 10.625C0.522335 10.625 0 10.1027 0 9.45833V3ZM6.125 4.5H4.375V6.25H5.25V7.125C5.37305 7.125 5.48698 7.10221 5.5918 7.05664C5.69661 7.01107 5.78776 6.94954 5.86523 6.87207C5.94271 6.7946 6.00651 6.70117 6.05664 6.5918C6.10677 6.48242 6.12956 6.36849 6.125 6.25V4.5ZM9.625 4.5H7.875V6.25H8.75V7.125C8.87305 7.125 8.98698 7.10221 9.0918 7.05664C9.19661 7.01107 9.28776 6.94954 9.36523 6.87207C9.44271 6.7946 9.50651 6.70117 9.55664 6.5918C9.60677 6.48242 9.62956 6.36849 9.625 6.25V4.5Z"></path></svg>
+                        <div class="css-k008qs">
+                            <span class="css-urgf3q">
+
+                                <span>Goes by</span>
+                                <span class="css-1pgo1xp">@Model.PreferredName</span>
+
+                            </span>
+                        </div>
+                    }
+                    @if (!string.IsNullOrEmpty(Model.Pronouns))
+                    {
+                        <span class="css-1q6u1tv">(@Model.Pronouns)</span>
+                    }
+                </div>
+            </div>
+        </div>
+        @if (Model.CardFields != null)
+        {
+            @foreach (var item in Model.CardFields)
+            {
+                <div class="contact-section-flat">
+                    <div class="contact-icon-flat">
+                        <div class="contact-icon-circle-flat">
+                            <i class="fas fa-envelope icon-size"></i>
+                        </div>
+                    </div>
+                    <div class="contact-info-flat">@item.Link</div>
+                </div>
+            }
+        }
+    </div>
+    <script>
+        window.onload = function () {
+            var profileImage = document.getElementById('profile-image');
+            var headerBlock = document.getElementById('header-block');
+
+            if (profileImage.complete && profileImage.naturalHeight !== 0) {
+                // Image is loaded and displayed
+                headerBlock.style.height = '1rem'; // Adjust height when image is displayed
+                headerBlock.style.background = '#8f60de'; // Background color
+            } else {
+                // Image is not loaded or failed to load
+                headerBlock.style.height = '5rem'; // Default height when image is not displayed
+                headerBlock.style.background = '#8f60de'; // Background color
+            }
+        };
+    </script>
+</body>
+</html>
