@@ -49,6 +49,7 @@ public partial class HihelloContext : IdentityDbContext<ApplicationUser>
             entity.ToTable("carddesigns");
 
             entity.Property(e => e.Id).HasColumnType("int(11)");
+            entity.Property(e => e.Name).HasMaxLength(250);
         });
 
         modelBuilder.Entity<Cardfield>(entity =>
@@ -159,5 +160,4 @@ public partial class HihelloContext : IdentityDbContext<ApplicationUser>
         modelBuilder.Entity<Aspnetusertoken>()
             .HasKey(token => new { token.UserId, token.LoginProvider, token.Name });
     }
-
 }

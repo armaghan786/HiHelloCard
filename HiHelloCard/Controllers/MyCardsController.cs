@@ -17,14 +17,12 @@ namespace HiHelloCard.Controllers
             return View();
         }
 
-        public IActionResult Details(string guid) 
+        public async Task<IActionResult> Details(string guid) 
         {
-            var card = (UserCardModel)_userCardService.CardDetails(guid).Result.Data;
-            if (card == null)
-            {
-                return NotFound();
-            }
-            return View(card);
+            UserCardModel model = new UserCardModel();
+            if (!string.IsNullOrEmpty(guid))
+                model = (UserCardModel)_userCardService.CardDetails(guid).Result.Data;
+            return View(model);
         }
     }
 }
